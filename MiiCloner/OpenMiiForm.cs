@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MiiCloner
 {
@@ -25,8 +26,8 @@ namespace MiiCloner
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                filePath = ofd.FileName;
-                MessageBox.Show(filePath);
+                MiiEditorForm miiEditorForm = new MiiEditorForm(ofd.FileName);
+                miiEditorForm.Show();
             }
         }
 
@@ -35,7 +36,7 @@ namespace MiiCloner
             if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            var fileExt = System.IO.Path.GetExtension(files[0]).ToLower();
+            var fileExt = Path.GetExtension(files[0]).ToLower();
 
             // giving a *paper mario mario voice* "nono" symbol if they try to drop either
             // too many files or anything that's not a mii file
@@ -54,13 +55,9 @@ namespace MiiCloner
 
         private void btnOpenMii_DragDrop(object sender, DragEventArgs e)
         {
-            MessageBox.Show("hello");
-            var files = (string[]) e.Data.GetData(DataFormats.FileDrop);
-        }
-
-        private void readMiiFile()
-        {
-
+            string filePath = ((string[]) e.Data.GetData(DataFormats.FileDrop))[0];
+            MiiEditorForm miiEditorForm = new MiiEditorForm(filePath);
+            miiEditorForm.Show();
         }
     }
 }
