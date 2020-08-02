@@ -33,6 +33,7 @@
             // 
             // btnOpenMii
             // 
+            this.btnOpenMii.AllowDrop = true;
             this.btnOpenMii.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenMii.Location = new System.Drawing.Point(0, 0);
             this.btnOpenMii.Name = "btnOpenMii";
@@ -41,6 +42,8 @@
             this.btnOpenMii.Text = "Click here or drag and drop to load .mii and .mae files";
             this.btnOpenMii.UseVisualStyleBackColor = true;
             this.btnOpenMii.Click += new System.EventHandler(this.btnOpenMii_Click);
+            this.btnOpenMii.DragDrop += new System.Windows.Forms.DragEventHandler(this.btnOpenMii_DragDrop);
+            this.btnOpenMii.DragEnter += new System.Windows.Forms.DragEventHandler(this.btnOpenMii_DragEnter);
             // 
             // OpenMiiForm
             // 
