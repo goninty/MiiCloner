@@ -9,6 +9,7 @@ namespace MiiCloner
     // mii attributes taken from http://wiibrew.org/wiki/Mii_Data#Mii_format
     class Mii
     {
+        public byte[] miiFile;
         public string miiName { get; set; }
         public string creatorName { get; set; }
         public string miiID { get; set; }
@@ -18,8 +19,9 @@ namespace MiiCloner
         public int favColor { get; set; } // 0 - 11
         public int isFavorite { get; set; }
 
-        public Mii(string miiName, string creatorName, string miiID, int[] metadata)
+        public Mii(byte[] miiFile, string miiName, string creatorName, string miiID, int[] metadata)
         {
+            this.miiFile = miiFile;
             this.miiName = miiName;
             this.creatorName = creatorName;
             this.miiID = miiID;
@@ -28,7 +30,10 @@ namespace MiiCloner
             this.day = metadata[2];
             this.favColor = metadata[3];
             this.isFavorite = metadata[4];
+        }
 
+        public void checkFields()
+        {
             Console.WriteLine(this.miiName);
             Console.WriteLine(this.creatorName);
             Console.WriteLine(this.miiID);
@@ -37,7 +42,6 @@ namespace MiiCloner
             Console.WriteLine(this.day);
             Console.WriteLine(this.favColor);
             Console.WriteLine(this.isFavorite);
-
 
         }
     }

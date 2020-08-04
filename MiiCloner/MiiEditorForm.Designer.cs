@@ -34,29 +34,31 @@
             this.gbCreatorName = new System.Windows.Forms.GroupBox();
             this.txtCreatorName = new System.Windows.Forms.TextBox();
             this.gbGender = new System.Windows.Forms.GroupBox();
+            this.pbGender = new System.Windows.Forms.PictureBox();
             this.gbFavorite = new System.Windows.Forms.GroupBox();
+            this.pbFavorite = new System.Windows.Forms.PictureBox();
             this.gbColor = new System.Windows.Forms.GroupBox();
+            this.pnColorFill = new System.Windows.Forms.Panel();
             this.gbMonth = new System.Windows.Forms.GroupBox();
-            this.txtMonth = new System.Windows.Forms.TextBox();
-            this.txtDay = new System.Windows.Forms.TextBox();
+            this.nudMonth = new System.Windows.Forms.NumericUpDown();
             this.gbDay = new System.Windows.Forms.GroupBox();
+            this.nudDay = new System.Windows.Forms.NumericUpDown();
             this.gbBirthday = new System.Windows.Forms.GroupBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnMogi = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
-            this.pnColorFill = new System.Windows.Forms.Panel();
-            this.pbGender = new System.Windows.Forms.PictureBox();
-            this.pbFavorite = new System.Windows.Forms.PictureBox();
             this.gbMiiName.SuspendLayout();
             this.gbCreatorName.SuspendLayout();
             this.gbGender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGender)).BeginInit();
             this.gbFavorite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFavorite)).BeginInit();
             this.gbColor.SuspendLayout();
             this.gbMonth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).BeginInit();
             this.gbDay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).BeginInit();
             this.gbBirthday.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGender)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFavorite)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMiiName
@@ -116,6 +118,17 @@
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
             // 
+            // pbGender
+            // 
+            this.pbGender.Enabled = false;
+            this.pbGender.Location = new System.Drawing.Point(15, 19);
+            this.pbGender.Name = "pbGender";
+            this.pbGender.Size = new System.Drawing.Size(51, 51);
+            this.pbGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGender.TabIndex = 0;
+            this.pbGender.TabStop = false;
+            this.pbGender.Click += new System.EventHandler(this.pbGender_Click);
+            // 
             // gbFavorite
             // 
             this.gbFavorite.Controls.Add(this.pbFavorite);
@@ -125,6 +138,20 @@
             this.gbFavorite.TabIndex = 6;
             this.gbFavorite.TabStop = false;
             this.gbFavorite.Text = "Favorite";
+            // 
+            // pbFavorite
+            // 
+            this.pbFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbFavorite.Enabled = false;
+            this.pbFavorite.Location = new System.Drawing.Point(16, 25);
+            this.pbFavorite.Name = "pbFavorite";
+            this.pbFavorite.Size = new System.Drawing.Size(48, 39);
+            this.pbFavorite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbFavorite.TabIndex = 1;
+            this.pbFavorite.TabStop = false;
+            this.pbFavorite.Click += new System.EventHandler(this.pbFavorite_Click);
             // 
             // gbColor
             // 
@@ -136,9 +163,18 @@
             this.gbColor.TabStop = false;
             this.gbColor.Text = "Color";
             // 
+            // pnColorFill
+            // 
+            this.pnColorFill.Enabled = false;
+            this.pnColorFill.Location = new System.Drawing.Point(15, 19);
+            this.pnColorFill.Name = "pnColorFill";
+            this.pnColorFill.Size = new System.Drawing.Size(51, 51);
+            this.pnColorFill.TabIndex = 0;
+            this.pnColorFill.Click += new System.EventHandler(this.pnColorFill_Click);
+            // 
             // gbMonth
             // 
-            this.gbMonth.Controls.Add(this.txtMonth);
+            this.gbMonth.Controls.Add(this.nudMonth);
             this.gbMonth.Location = new System.Drawing.Point(6, 19);
             this.gbMonth.Name = "gbMonth";
             this.gbMonth.Size = new System.Drawing.Size(118, 55);
@@ -146,33 +182,51 @@
             this.gbMonth.TabStop = false;
             this.gbMonth.Text = "Month";
             // 
-            // txtMonth
+            // nudMonth
             // 
-            this.txtMonth.Enabled = false;
-            this.txtMonth.Location = new System.Drawing.Point(6, 21);
-            this.txtMonth.Name = "txtMonth";
-            this.txtMonth.Size = new System.Drawing.Size(106, 20);
-            this.txtMonth.TabIndex = 0;
-            this.txtMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtDay
-            // 
-            this.txtDay.Enabled = false;
-            this.txtDay.Location = new System.Drawing.Point(6, 21);
-            this.txtDay.Name = "txtDay";
-            this.txtDay.Size = new System.Drawing.Size(106, 20);
-            this.txtDay.TabIndex = 0;
-            this.txtDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudMonth.Enabled = false;
+            this.nudMonth.Location = new System.Drawing.Point(6, 22);
+            this.nudMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudMonth.Name = "nudMonth";
+            this.nudMonth.Size = new System.Drawing.Size(106, 20);
+            this.nudMonth.TabIndex = 1;
+            this.nudMonth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // gbDay
             // 
-            this.gbDay.Controls.Add(this.txtDay);
+            this.gbDay.Controls.Add(this.nudDay);
             this.gbDay.Location = new System.Drawing.Point(131, 19);
             this.gbDay.Name = "gbDay";
             this.gbDay.Size = new System.Drawing.Size(118, 55);
             this.gbDay.TabIndex = 4;
             this.gbDay.TabStop = false;
             this.gbDay.Text = "Day";
+            // 
+            // nudDay
+            // 
+            this.nudDay.Enabled = false;
+            this.nudDay.Location = new System.Drawing.Point(6, 22);
+            this.nudDay.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.nudDay.Name = "nudDay";
+            this.nudDay.Size = new System.Drawing.Size(106, 20);
+            this.nudDay.TabIndex = 2;
+            this.nudDay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // gbBirthday
             // 
@@ -193,6 +247,7 @@
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnMogi
             // 
@@ -211,34 +266,7 @@
             this.btnExport.TabIndex = 12;
             this.btnExport.Text = "Export Clone";
             this.btnExport.UseVisualStyleBackColor = true;
-            // 
-            // pnColorFill
-            // 
-            this.pnColorFill.Location = new System.Drawing.Point(15, 19);
-            this.pnColorFill.Name = "pnColorFill";
-            this.pnColorFill.Size = new System.Drawing.Size(51, 51);
-            this.pnColorFill.TabIndex = 0;
-            // 
-            // pbGender
-            // 
-            this.pbGender.Location = new System.Drawing.Point(15, 19);
-            this.pbGender.Name = "pbGender";
-            this.pbGender.Size = new System.Drawing.Size(51, 51);
-            this.pbGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbGender.TabIndex = 0;
-            this.pbGender.TabStop = false;
-            // 
-            // pbFavorite
-            // 
-            this.pbFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbFavorite.Location = new System.Drawing.Point(16, 25);
-            this.pbFavorite.Name = "pbFavorite";
-            this.pbFavorite.Size = new System.Drawing.Size(48, 39);
-            this.pbFavorite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbFavorite.TabIndex = 1;
-            this.pbFavorite.TabStop = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // MiiEditorForm
             // 
@@ -267,16 +295,16 @@
             this.gbCreatorName.ResumeLayout(false);
             this.gbCreatorName.PerformLayout();
             this.gbGender.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbGender)).EndInit();
             this.gbFavorite.ResumeLayout(false);
             this.gbFavorite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFavorite)).EndInit();
             this.gbColor.ResumeLayout(false);
             this.gbMonth.ResumeLayout(false);
-            this.gbMonth.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).EndInit();
             this.gbDay.ResumeLayout(false);
-            this.gbDay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
             this.gbBirthday.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbGender)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFavorite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,8 +321,6 @@
         private System.Windows.Forms.GroupBox gbFavorite;
         private System.Windows.Forms.GroupBox gbColor;
         private System.Windows.Forms.GroupBox gbMonth;
-        private System.Windows.Forms.TextBox txtMonth;
-        private System.Windows.Forms.TextBox txtDay;
         private System.Windows.Forms.GroupBox gbDay;
         private System.Windows.Forms.GroupBox gbBirthday;
         private System.Windows.Forms.Button btnEdit;
@@ -303,6 +329,8 @@
         private System.Windows.Forms.Panel pnColorFill;
         private System.Windows.Forms.PictureBox pbGender;
         private System.Windows.Forms.PictureBox pbFavorite;
+        private System.Windows.Forms.NumericUpDown nudMonth;
+        private System.Windows.Forms.NumericUpDown nudDay;
     }
 }
 
