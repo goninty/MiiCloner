@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mii.cs" />
     <Compile Include="MiiEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>

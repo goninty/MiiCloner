@@ -17,19 +17,14 @@ namespace MiiCloner
         {
             InitializeComponent();
             var mfr = new MiiFileReader(new FileStream(filePath, FileMode.Open));
-            lblMiiName.Text = mfr.ReadMiiName();
-            Console.WriteLine(mfr.ReadCreatorName());
-            Console.WriteLine(mfr.ReadMiiID());
 
-            foreach (int i in mfr.ReadMiiMetadata())
-            {
-                Console.WriteLine(i);
-            }
+            Mii mii = new Mii(mfr.ReadMiiName(), mfr.ReadCreatorName(), mfr.ReadMiiID(), mfr.ReadMiiMetadata());
+
+            mfr.Close();
         }
 
         private void MiiClonerForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
