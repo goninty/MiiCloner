@@ -60,11 +60,11 @@ namespace MiiCloner
             return metadata;
         } 
 
-        public string ReadMiiID()
+        public byte[] ReadMiiID()
         {
-            base.BaseStream.Seek(23, SeekOrigin.Begin);
+            base.BaseStream.Seek(24, SeekOrigin.Begin);
             byte[] miiID = base.ReadBytes(4);
-            return BitConverter.ToString(miiID);
+            return miiID;
         }
 
     }

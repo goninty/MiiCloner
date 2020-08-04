@@ -12,14 +12,14 @@ namespace MiiCloner
         public byte[] miiFile;
         public string miiName { get; set; }
         public string creatorName { get; set; }
-        public string miiID { get; set; }
+        public byte[] miiID { get; set; }
         public int isGirl { get; set; }
         public int month { get; set; }
         public int day { get; set; }
         public int favColor { get; set; } // 0 - 11
         public int isFavorite { get; set; }
 
-        public Mii(byte[] miiFile, string miiName, string creatorName, string miiID, int[] metadata)
+        public Mii(byte[] miiFile, string miiName, string creatorName, byte[] miiID, int[] metadata)
         {
             this.miiFile = miiFile;
             this.miiName = miiName;
@@ -30,19 +30,21 @@ namespace MiiCloner
             this.day = metadata[2];
             this.favColor = metadata[3];
             this.isFavorite = metadata[4];
+
+            Console.WriteLine("mii name length: " + this.miiName.Length);
         }
 
         public void checkFields()
         {
             Console.WriteLine(this.miiName);
             Console.WriteLine(this.creatorName);
-            Console.WriteLine(this.miiID);
+            Console.WriteLine(BitConverter.ToString(this.miiID));
             Console.WriteLine(this.isGirl);
             Console.WriteLine(this.month);
             Console.WriteLine(this.day);
             Console.WriteLine(this.favColor);
             Console.WriteLine(this.isFavorite);
-
+            Console.WriteLine("mii name length: " + this.miiName.Length);
         }
     }
 
