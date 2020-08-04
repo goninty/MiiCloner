@@ -9,14 +9,14 @@ namespace MiiCloner
     // mii attributes taken from http://wiibrew.org/wiki/Mii_Data#Mii_format
     class Mii
     {
-        private string miiName { get; set; }
-        private string creatorName { get; set; }
-        private string miiID { get; set; }
-        private int isGirl { get; set; }
-        private int month { get; set; }
-        private int day { get; set; }
-        private int favColor { get; set; } // 0 - 11
-        private int isFavorite { get; set; }
+        public string miiName { get; set; }
+        public string creatorName { get; set; }
+        public string miiID { get; set; }
+        public int isGirl { get; set; }
+        public int month { get; set; }
+        public int day { get; set; }
+        public int favColor { get; set; } // 0 - 11
+        public int isFavorite { get; set; }
 
         public Mii(string miiName, string creatorName, string miiID, int[] metadata)
         {

@@ -44,11 +44,19 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnMogi = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.pnColorFill = new System.Windows.Forms.Panel();
+            this.pbGender = new System.Windows.Forms.PictureBox();
+            this.pbFavorite = new System.Windows.Forms.PictureBox();
             this.gbMiiName.SuspendLayout();
             this.gbCreatorName.SuspendLayout();
+            this.gbGender.SuspendLayout();
+            this.gbFavorite.SuspendLayout();
+            this.gbColor.SuspendLayout();
             this.gbMonth.SuspendLayout();
             this.gbDay.SuspendLayout();
             this.gbBirthday.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFavorite)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMiiName
@@ -72,10 +80,12 @@
             // 
             // txtMiiName
             // 
+            this.txtMiiName.Enabled = false;
             this.txtMiiName.Location = new System.Drawing.Point(6, 21);
             this.txtMiiName.Name = "txtMiiName";
             this.txtMiiName.Size = new System.Drawing.Size(242, 20);
             this.txtMiiName.TabIndex = 0;
+            this.txtMiiName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gbCreatorName
             // 
@@ -89,13 +99,16 @@
             // 
             // txtCreatorName
             // 
+            this.txtCreatorName.Enabled = false;
             this.txtCreatorName.Location = new System.Drawing.Point(6, 21);
             this.txtCreatorName.Name = "txtCreatorName";
             this.txtCreatorName.Size = new System.Drawing.Size(242, 20);
             this.txtCreatorName.TabIndex = 0;
+            this.txtCreatorName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gbGender
             // 
+            this.gbGender.Controls.Add(this.pbGender);
             this.gbGender.Location = new System.Drawing.Point(12, 134);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(81, 81);
@@ -105,6 +118,7 @@
             // 
             // gbFavorite
             // 
+            this.gbFavorite.Controls.Add(this.pbFavorite);
             this.gbFavorite.Location = new System.Drawing.Point(186, 134);
             this.gbFavorite.Name = "gbFavorite";
             this.gbFavorite.Size = new System.Drawing.Size(81, 81);
@@ -114,6 +128,7 @@
             // 
             // gbColor
             // 
+            this.gbColor.Controls.Add(this.pnColorFill);
             this.gbColor.Location = new System.Drawing.Point(99, 134);
             this.gbColor.Name = "gbColor";
             this.gbColor.Size = new System.Drawing.Size(81, 81);
@@ -133,17 +148,21 @@
             // 
             // txtMonth
             // 
+            this.txtMonth.Enabled = false;
             this.txtMonth.Location = new System.Drawing.Point(6, 21);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Size = new System.Drawing.Size(106, 20);
             this.txtMonth.TabIndex = 0;
+            this.txtMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtDay
             // 
+            this.txtDay.Enabled = false;
             this.txtDay.Location = new System.Drawing.Point(6, 21);
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(106, 20);
             this.txtDay.TabIndex = 0;
+            this.txtDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gbDay
             // 
@@ -193,6 +212,34 @@
             this.btnExport.Text = "Export Clone";
             this.btnExport.UseVisualStyleBackColor = true;
             // 
+            // pnColorFill
+            // 
+            this.pnColorFill.Location = new System.Drawing.Point(15, 19);
+            this.pnColorFill.Name = "pnColorFill";
+            this.pnColorFill.Size = new System.Drawing.Size(51, 51);
+            this.pnColorFill.TabIndex = 0;
+            // 
+            // pbGender
+            // 
+            this.pbGender.Location = new System.Drawing.Point(15, 19);
+            this.pbGender.Name = "pbGender";
+            this.pbGender.Size = new System.Drawing.Size(51, 51);
+            this.pbGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGender.TabIndex = 0;
+            this.pbGender.TabStop = false;
+            // 
+            // pbFavorite
+            // 
+            this.pbFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbFavorite.Location = new System.Drawing.Point(16, 25);
+            this.pbFavorite.Name = "pbFavorite";
+            this.pbFavorite.Size = new System.Drawing.Size(48, 39);
+            this.pbFavorite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbFavorite.TabIndex = 1;
+            this.pbFavorite.TabStop = false;
+            // 
             // MiiEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,11 +266,17 @@
             this.gbMiiName.PerformLayout();
             this.gbCreatorName.ResumeLayout(false);
             this.gbCreatorName.PerformLayout();
+            this.gbGender.ResumeLayout(false);
+            this.gbFavorite.ResumeLayout(false);
+            this.gbFavorite.PerformLayout();
+            this.gbColor.ResumeLayout(false);
             this.gbMonth.ResumeLayout(false);
             this.gbMonth.PerformLayout();
             this.gbDay.ResumeLayout(false);
             this.gbDay.PerformLayout();
             this.gbBirthday.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbGender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFavorite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +300,9 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnMogi;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Panel pnColorFill;
+        private System.Windows.Forms.PictureBox pbGender;
+        private System.Windows.Forms.PictureBox pbFavorite;
     }
 }
 

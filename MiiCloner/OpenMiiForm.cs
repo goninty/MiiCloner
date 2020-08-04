@@ -13,8 +13,6 @@ namespace MiiCloner
 {
     public partial class OpenMiiForm : Form
     {
-        byte[] fileContent;
-        string filePath;
         public OpenMiiForm()
         {
             InitializeComponent();
