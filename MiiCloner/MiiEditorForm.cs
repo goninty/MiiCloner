@@ -36,10 +36,10 @@ namespace MiiCloner
 
         private void MiiClonerForm_Load(object sender, EventArgs e)
         {
-            gender[0] = Image.FromFile("./images/gender/male.png");
-            gender[1] = Image.FromFile("./images/gender/female.png");
-            favorite[0] = Image.FromFile("./images/favorite/no.png");
-            favorite[1] = Image.FromFile("./images/favorite/yes.png");
+            gender[0] = Properties.Resources.Male;
+            gender[1] = Properties.Resources.Female;
+            favorite[0] = Properties.Resources.NoFavorite;
+            favorite[1] = Properties.Resources.YesFavorite;
 
             txtMiiName.Text = mii.miiName;
             txtCreatorName.Text = mii.creatorName;
