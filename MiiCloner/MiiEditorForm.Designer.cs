@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiiEditorForm));
             this.lblMiiName = new System.Windows.Forms.Label();
             this.gbMiiName = new System.Windows.Forms.GroupBox();
             this.txtMiiName = new System.Windows.Forms.TextBox();
@@ -294,10 +295,12 @@
             this.Controls.Add(this.lblMiiName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MiiEditorForm";
             this.Text = "Mii Cloner";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MiiEditorForm_HelpButtonClicked);
             this.Load += new System.EventHandler(this.MiiClonerForm_Load);
             this.gbMiiName.ResumeLayout(false);
             this.gbMiiName.PerformLayout();

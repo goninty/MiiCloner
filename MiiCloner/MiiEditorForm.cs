@@ -199,6 +199,11 @@ namespace MiiCloner
             }
         }
 
+        private void MiiEditorForm_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            new AboutForm().ShowDialog();
+        }
+
         // generating random new mii ID
         // https://stackoverflow.com/a/31451845
         // why do I pass in an instance of Random?

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenMiiForm));
             this.btnOpenMii = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,10 +53,13 @@
             this.ClientSize = new System.Drawing.Size(208, 65);
             this.Controls.Add(this.btnOpenMii);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OpenMiiForm";
             this.Text = "Mii Cloner";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.OpenMiiForm_HelpButtonClicked);
             this.ResumeLayout(false);
 
         }

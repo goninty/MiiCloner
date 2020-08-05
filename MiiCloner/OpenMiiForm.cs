@@ -26,7 +26,7 @@ namespace MiiCloner
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 MiiEditorForm miiEditorForm = new MiiEditorForm(ofd.FileName);
-                miiEditorForm.Show();
+                miiEditorForm.ShowDialog();
             }
         }
 
@@ -56,7 +56,12 @@ namespace MiiCloner
         {
             string filePath = ((string[]) e.Data.GetData(DataFormats.FileDrop))[0];
             MiiEditorForm miiEditorForm = new MiiEditorForm(filePath);
-            miiEditorForm.Show();
+            miiEditorForm.ShowDialog();
+        }
+
+        private void OpenMiiForm_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            new AboutForm().ShowDialog();
         }
     }
 }
