@@ -41,6 +41,9 @@ namespace MiiCloner
             pbFavorite.ImageLocation = "./images/favorite/" + isFavorite.ToString() + ".png";
             nudMonth.Value = mii.month;
             nudDay.Value = mii.day;
+
+            MiiFileWriter mfw = new MiiFileWriter(File.Open("clone3.mii", FileMode.Create));
+            mfw.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -56,8 +59,6 @@ namespace MiiCloner
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
-
             mii.miiName = txtMiiName.Text;
             mii.creatorName = txtCreatorName.Text;
             mii.isGirl = isGirl;
@@ -67,9 +68,10 @@ namespace MiiCloner
             mii.day = (int) nudDay.Value;
 
             mii.checkFields();
-            BinaryWriter bw = new BinaryWriter(File.Open("clone.mii", FileMode.Create));
-            bw.Write(packageIntoBytes());
-            bw.Close();
+
+            MiiFileWriter mfw = new MiiFileWriter(File.Open("clone2.mii", FileMode.Create));
+            mfw.Write(mii);
+            mfw.Close();
         }
 
         private void pbGender_Click(object sender, EventArgs e)
@@ -87,102 +89,6 @@ namespace MiiCloner
         {
             isFavorite = Math.Abs(1 - isFavorite);
             pbFavorite.ImageLocation = "./images/favorite/" + isFavorite.ToString() + ".png";
-        }
-
-        // this method is definitely in the wrong place right now
-        // please move this later please god
-        // also tidy it up ffs
-        private byte[] packageIntoBytes()
-        {
-            // length in bytes
-            const int METADATA_LENGTH = 2;
-            const int MII_NAME_LENGTH = 20;
-            const int MII_ID_LENGTH = 4;
-            const int MII_CREATOR_NAME_LENGTH = 20;
-
-            var miiFile = mii.miiFile;
-            
-            // packaging metadata into bytes
-            string metadataBinary = 0 + // invalid
-                                    Convert.ToString(mii.isGirl, 2).PadLeft(1, '0') +
-                                    Convert.ToString(mii.month, 2).PadLeft(4, '0') +
-                                    Convert.ToString(mii.day, 2).PadLeft(5, '0') +
-                                    Convert.ToString(mii.favColor, 2).PadLeft(4, '0') +
-                                    Convert.ToString(mii.isFavorite, 2).PadLeft(1, '0');
-
-            // https://stackoverflow.com/a/3436456
-            byte[] metadataBytes = new byte[METADATA_LENGTH];
-            for (int i = 0; i < METADATA_LENGTH; ++i)
-            {
-                metadataBytes[i] = Convert.ToByte(metadataBinary.Substring(8 * i, 8), 2);
-            }
-
-            Console.WriteLine(metadataBinary);
-            Console.WriteLine(BitConverter.ToString(metadataBytes));
-
-            // packaging mii name into bytes
-            byte[] miiNameBytes = new byte[MII_NAME_LENGTH];
-            int j = 0; // going sicko mode here folks
-            for (int i = 0; i < mii.miiName.Length; i++)
-            {
-                byte[] currChar = BitConverter.GetBytes(mii.miiName[i]);
-                miiNameBytes[j] = currChar[1];
-                miiNameBytes[j + 1] = currChar[0];
-                j = j + 2; // god dammit
-            }
-
-            Console.WriteLine(BitConverter.ToString(miiNameBytes));
-
-            // incrementing mii ID by one and packaging into bytes
-            byte[] miiIDBytes = mii.miiID;
-            Array.Reverse(miiIDBytes);
-            uint miiIDInteger = BitConverter.ToUInt32(miiIDBytes, 0);
-            miiIDInteger++;
-            miiIDBytes = BitConverter.GetBytes(miiIDInteger);
-            Array.Reverse(miiIDBytes);
-            Console.WriteLine(BitConverter.ToString(miiIDBytes));
-
-
-            // packaging creator name into bytes
-            byte[] creatorNameBytes = new byte[MII_CREATOR_NAME_LENGTH];
-            j = 0; // going sicko mode here again pog champ
-            for (int i = 0; i < mii.creatorName.Length; i++)
-            {
-                byte[] currChar = BitConverter.GetBytes(mii.creatorName[i]);
-                creatorNameBytes[j] = currChar[1];
-                creatorNameBytes[j + 1] = currChar[0];
-                j = j + 2;
-            }
-
-            Console.WriteLine(BitConverter.ToString(creatorNameBytes));
-
-            // actually writing to the complete byte array
-            int seekVal = 0; // where we are writing to in the byte array
-            for (int i = 0; i < METADATA_LENGTH; i++)
-            {
-                miiFile[i] = metadataBytes[i];
-            }
-
-            seekVal = 2;
-            for (int i = 0; i < MII_NAME_LENGTH; i++)
-            {
-                miiFile[seekVal + i] = miiNameBytes[i];
-            }
-
-            seekVal = 24;
-            for (int i = 0; i < MII_ID_LENGTH; i++)
-            {
-                miiFile[seekVal + i] = miiIDBytes[i];
-            }
-
-            seekVal = 54;
-            for (int i = 0; i < MII_CREATOR_NAME_LENGTH; i++)
-            {
-                miiFile[seekVal + i] = creatorNameBytes[i];
-            }
-
-            //miiFile
-            return miiFile;
         }
        
     }

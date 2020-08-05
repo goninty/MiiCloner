@@ -54,6 +54,7 @@
       <DependentUpon>MiiEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MiiFileReader.cs" />
+    <Compile Include="MiiFileWriter.cs" />
     <Compile Include="OpenMiiForm.cs">
       <SubType>Form</SubType>
     </Compile>

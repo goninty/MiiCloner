@@ -30,8 +30,6 @@ namespace MiiCloner
             this.day = metadata[2];
             this.favColor = metadata[3];
             this.isFavorite = metadata[4];
-
-            Console.WriteLine("mii name length: " + this.miiName.Length);
         }
 
         public void checkFields()
