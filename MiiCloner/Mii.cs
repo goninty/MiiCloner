@@ -42,7 +42,6 @@ namespace MiiCloner
             Console.WriteLine(this.day);
             Console.WriteLine(this.favColor);
             Console.WriteLine(this.isFavorite);
-            Console.WriteLine("mii name length: " + this.miiName.Length);
         }
     }
 

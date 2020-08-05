@@ -83,9 +83,11 @@
             // txtMiiName
             // 
             this.txtMiiName.Enabled = false;
-            this.txtMiiName.Location = new System.Drawing.Point(6, 21);
+            this.txtMiiName.Font = new System.Drawing.Font("CTMKF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiiName.Location = new System.Drawing.Point(6, 19);
+            this.txtMiiName.MaxLength = 10;
             this.txtMiiName.Name = "txtMiiName";
-            this.txtMiiName.Size = new System.Drawing.Size(242, 20);
+            this.txtMiiName.Size = new System.Drawing.Size(242, 25);
             this.txtMiiName.TabIndex = 0;
             this.txtMiiName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -102,9 +104,11 @@
             // txtCreatorName
             // 
             this.txtCreatorName.Enabled = false;
-            this.txtCreatorName.Location = new System.Drawing.Point(6, 21);
+            this.txtCreatorName.Font = new System.Drawing.Font("CTMKF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreatorName.Location = new System.Drawing.Point(6, 19);
+            this.txtCreatorName.MaxLength = 10;
             this.txtCreatorName.Name = "txtCreatorName";
-            this.txtCreatorName.Size = new System.Drawing.Size(242, 20);
+            this.txtCreatorName.Size = new System.Drawing.Size(242, 25);
             this.txtCreatorName.TabIndex = 0;
             this.txtCreatorName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -128,6 +132,7 @@
             this.pbGender.TabIndex = 0;
             this.pbGender.TabStop = false;
             this.pbGender.Click += new System.EventHandler(this.pbGender_Click);
+            this.pbGender.DoubleClick += new System.EventHandler(this.pbGender_DoubleClick);
             // 
             // gbFavorite
             // 
@@ -152,6 +157,7 @@
             this.pbFavorite.TabIndex = 1;
             this.pbFavorite.TabStop = false;
             this.pbFavorite.Click += new System.EventHandler(this.pbFavorite_Click);
+            this.pbFavorite.DoubleClick += new System.EventHandler(this.pbFavorite_DoubleClick);
             // 
             // gbColor
             // 
@@ -171,6 +177,7 @@
             this.pnColorFill.Size = new System.Drawing.Size(51, 51);
             this.pnColorFill.TabIndex = 0;
             this.pnColorFill.Click += new System.EventHandler(this.pnColorFill_Click);
+            this.pnColorFill.DoubleClick += new System.EventHandler(this.pnColorFill_DoubleClick);
             // 
             // gbMonth
             // 
@@ -199,6 +206,7 @@
             0,
             0,
             0});
+            this.nudMonth.ValueChanged += new System.EventHandler(this.nudMonth_ValueChanged);
             // 
             // gbDay
             // 
@@ -255,8 +263,9 @@
             this.btnMogi.Name = "btnMogi";
             this.btnMogi.Size = new System.Drawing.Size(255, 48);
             this.btnMogi.TabIndex = 11;
-            this.btnMogi.Text = "Generate 26 alphabetically lettered miis for Mogi Lounge";
+            this.btnMogi.Text = "Generate 26 miis with A-Z tags for Mogi lounge";
             this.btnMogi.UseVisualStyleBackColor = true;
+            this.btnMogi.Click += new System.EventHandler(this.btnMogi_Click);
             // 
             // btnExport
             // 

@@ -21,6 +21,7 @@ namespace MiiCloner
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Mii Files (*.mii; *.mae)|*.mii;*.mae";
+            ofd.RestoreDirectory = true;
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {

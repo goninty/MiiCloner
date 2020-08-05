@@ -17,7 +17,7 @@ namespace MiiCloner
         Mii mii;
         byte[] miiFile;
 
-        public MiiFileWriter(System.IO.Stream stream) : base(stream) { packMiiID();  }
+        public MiiFileWriter(System.IO.Stream stream) : base(stream) { }
 
         public void Write(Mii mii)
         {
@@ -53,7 +53,7 @@ namespace MiiCloner
                 miiFile[seekVal + i] = miiName[i];
             }
 
-            byte[] miiID = generateMiiID();
+            byte[] miiID = mii.miiID;
             seekVal = 24;
             for (int i = 0; i < MII_ID_LENGTH; i++)
             {
@@ -109,16 +109,6 @@ namespace MiiCloner
 
             Console.WriteLine(BitConverter.ToString(nameBytes));
             return nameBytes;
-        }
-
-        // generating random new mii ID
-        // https://stackoverflow.com/a/31451845
-        private byte[] generateMiiID()
-        {
-            var id = new byte[sizeof(uint)];
-            new Random().NextBytes(id);
-            Console.WriteLine(BitConverter.ToString(id));
-            return id;
         }
     }
 }

@@ -14,9 +14,14 @@ namespace MiiCloner
     public partial class MiiEditorForm : Form
     {
         Mii mii;
+
+        // ints below used to keep track of when user is flicking between things
         private int isGirl;
         private int isFavorite;
         private int colorIndex; // current selected color in terms of index along colors array
+
+        private Image[] gender = new Image[2];
+        private Image[] favorite = new Image[2];
         private Color[] colors = { Color.Red, Color.Orange, Color.Yellow, Color.LawnGreen,
                                    Color.DarkGreen, Color.Blue, Color.LightBlue, Color.Pink,
                                    Color.Purple, Color.SaddleBrown, Color.White, Color.Black };
@@ -31,19 +36,21 @@ namespace MiiCloner
 
         private void MiiClonerForm_Load(object sender, EventArgs e)
         {
+            gender[0] = Image.FromFile("./images/gender/male.png");
+            gender[1] = Image.FromFile("./images/gender/female.png");
+            favorite[0] = Image.FromFile("./images/favorite/no.png");
+            favorite[1] = Image.FromFile("./images/favorite/yes.png");
+
             txtMiiName.Text = mii.miiName;
             txtCreatorName.Text = mii.creatorName;
             isGirl = mii.isGirl;
-            pbGender.ImageLocation = "./images/gender/" + isGirl.ToString() + ".png";
+            pbGender.Image = gender[isGirl];
             colorIndex = mii.favColor;
             pnColorFill.BackColor = colors[colorIndex];
             isFavorite = mii.isFavorite;
-            pbFavorite.ImageLocation = "./images/favorite/" + isFavorite.ToString() + ".png";
+            pbFavorite.Image = favorite[isFavorite];
             nudMonth.Value = mii.month;
             nudDay.Value = mii.day;
-
-            MiiFileWriter mfw = new MiiFileWriter(File.Open("clone3.mii", FileMode.Create));
-            mfw.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -57,39 +64,152 @@ namespace MiiCloner
             nudDay.Enabled = true;
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void saveMiiDetails()
         {
             mii.miiName = txtMiiName.Text;
             mii.creatorName = txtCreatorName.Text;
+            mii.miiID = generateMiiID(new Random());
             mii.isGirl = isGirl;
             mii.favColor = colorIndex;
             mii.isFavorite = isFavorite;
-            mii.month = (int) nudMonth.Value;
-            mii.day = (int) nudDay.Value;
+            mii.month = (int)nudMonth.Value;
+            mii.day = (int)nudDay.Value;
+        }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            saveMiiDetails();
             mii.checkFields();
 
-            MiiFileWriter mfw = new MiiFileWriter(File.Open("clone2.mii", FileMode.Create));
-            mfw.Write(mii);
-            mfw.Close();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Mii File (*.mii)|*.mii";
+            sfd.RestoreDirectory = true;
+            sfd.FileName = BitConverter.ToString(mii.miiID);
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Console.WriteLine(sfd.FileName);
+                MiiFileWriter mfw = new MiiFileWriter(File.Open(sfd.FileName, FileMode.Create));
+                mfw.Write(mii);
+                mfw.Close();
+                MessageBox.Show("Mii successfully cloned!", "Mii Cloner");
+            }
         }
 
-        private void pbGender_Click(object sender, EventArgs e)
+        private void btnMogi_Click(object sender, EventArgs e)
+        {
+            if (txtMiiName.Text.Length > 8)
+            {
+                MessageBox.Show("Mii name too long to add a letter to the front. Please shorten it!", "Mii Cloner");
+            }
+            else
+            {
+                saveMiiDetails();
+
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    if (MessageBox.Show("Clone 26 miis into " + fbd.SelectedPath + "?", "Mii Cloner", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        Console.WriteLine(fbd.SelectedPath);
+                        MiiFileWriter mfw;
+                        Random rnd = new Random();
+                        for (char c = 'A'; c <= 'Z'; c++)
+                        {
+                            mii.miiName = c.ToString() + " " + txtMiiName.Text;
+                            mii.miiID = generateMiiID(rnd);
+                            mfw = new MiiFileWriter(File.Open(fbd.SelectedPath + "\\" + mii.miiName + ".mii", FileMode.Create));
+                            mfw.Write(mii);
+                            mfw.Close();
+                            Console.WriteLine(mii.miiName);
+                        }
+                        MessageBox.Show("Mogi miis created!", "Mii Cloner");
+                    }
+                }
+            }
+        }
+
+        // now why do i handle both the click and double click events?
+        // it's because only handling click meant that rapid clicks wouldn't register
+        // because they would be interpreted as double clicks
+        // this is literally nothing but a QoL improvement
+        // and because i am pedantic
+
+        private void changeGender()
         {
             isGirl = Math.Abs(1 - isGirl);
-            pbGender.ImageLocation = "./images/gender/" + isGirl.ToString() + ".png";
+            pbGender.Image = gender[isGirl];
+            pbGender.Invalidate();
         }
-        private void pnColorFill_Click(object sender, EventArgs e)
+        private void pbGender_Click(object sender, EventArgs e)
+        {
+            changeGender();
+        }
+
+        private void pbGender_DoubleClick(object sender, EventArgs e)
+        {
+            changeGender();
+        }
+
+        private void changeColor()
         {
             colorIndex = (colorIndex + 1) % colors.Length;
             pnColorFill.BackColor = colors[colorIndex];
+            pnColorFill.Invalidate();
+        }
+        private void pnColorFill_Click(object sender, EventArgs e)
+        {
+            changeColor();
+        }
+        private void pnColorFill_DoubleClick(object sender, EventArgs e)
+        {
+            changeColor();
+        }
+
+        private void changeFavorite()
+        {
+            isFavorite = Math.Abs(1 - isFavorite);
+            pbFavorite.Image = favorite[isFavorite];
         }
 
         private void pbFavorite_Click(object sender, EventArgs e)
         {
-            isFavorite = Math.Abs(1 - isFavorite);
-            pbFavorite.ImageLocation = "./images/favorite/" + isFavorite.ToString() + ".png";
+            changeFavorite();
         }
-       
+
+        private void pbFavorite_DoubleClick(object sender, EventArgs e)
+        {
+            changeFavorite();
+        }
+
+        private void nudMonth_ValueChanged(object sender, EventArgs e)
+        {
+            // February
+            if (nudMonth.Value == 2)
+            {
+                nudDay.Maximum = 29;
+            }
+            // months with 30 days
+            else if (Array.Exists(new int[] { 4, 6, 9, 11 }, elem => elem == nudMonth.Value))
+            {
+                nudDay.Maximum = 30;
+            }
+            else
+            {
+                nudDay.Maximum = 31;
+            }
+        }
+
+        // generating random new mii ID
+        // https://stackoverflow.com/a/31451845
+        // why do I pass in an instance of Random?
+        // this is why: https://stackoverflow.com/a/768001
+        private byte[] generateMiiID(Random rnd)
+        {
+            var id = new byte[sizeof(uint)];
+            rnd.NextBytes(id);
+            Console.WriteLine(BitConverter.ToString(id));
+            return id;
+        }
+
     }
 }
