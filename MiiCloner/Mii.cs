@@ -31,18 +31,6 @@ namespace MiiCloner
             this.favColor = metadata[3];
             this.isFavorite = metadata[4];
         }
-
-        public void checkFields()
-        {
-            Console.WriteLine(this.miiName);
-            Console.WriteLine(this.creatorName);
-            Console.WriteLine(BitConverter.ToString(this.miiID));
-            Console.WriteLine(this.isGirl);
-            Console.WriteLine(this.month);
-            Console.WriteLine(this.day);
-            Console.WriteLine(this.favColor);
-            Console.WriteLine(this.isFavorite);
-        }
     }
 
 }

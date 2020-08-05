@@ -88,8 +88,6 @@ namespace MiiCloner
                 metadataBytes[i] = Convert.ToByte(metadataBinary.Substring(8 * i, 8), 2);
             }
 
-            Console.WriteLine(metadataBinary);
-            Console.WriteLine(BitConverter.ToString(metadataBytes));
             return metadataBytes;
         }
 
@@ -107,7 +105,6 @@ namespace MiiCloner
                 j = j + 2; // god dammit
             }
 
-            Console.WriteLine(BitConverter.ToString(nameBytes));
             return nameBytes;
         }
     }

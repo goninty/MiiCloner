@@ -79,7 +79,6 @@ namespace MiiCloner
         private void btnExport_Click(object sender, EventArgs e)
         {
             saveMiiDetails();
-            mii.checkFields();
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Mii File (*.mii)|*.mii";
@@ -87,7 +86,6 @@ namespace MiiCloner
             sfd.FileName = BitConverter.ToString(mii.miiID);
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                Console.WriteLine(sfd.FileName);
                 MiiFileWriter mfw = new MiiFileWriter(File.Open(sfd.FileName, FileMode.Create));
                 mfw.Write(mii);
                 mfw.Close();
@@ -110,7 +108,6 @@ namespace MiiCloner
                 {
                     if (MessageBox.Show("Clone 26 miis into " + fbd.SelectedPath + "?", "Mii Cloner", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        Console.WriteLine(fbd.SelectedPath);
                         MiiFileWriter mfw;
                         Random rnd = new Random();
                         for (char c = 'A'; c <= 'Z'; c++)
@@ -120,7 +117,6 @@ namespace MiiCloner
                             mfw = new MiiFileWriter(File.Open(fbd.SelectedPath + "\\" + mii.miiName + ".mii", FileMode.Create));
                             mfw.Write(mii);
                             mfw.Close();
-                            Console.WriteLine(mii.miiName);
                         }
                         MessageBox.Show("Mogi miis created!", "Mii Cloner");
                     }
@@ -212,7 +208,6 @@ namespace MiiCloner
         {
             var id = new byte[sizeof(uint)];
             rnd.NextBytes(id);
-            Console.WriteLine(BitConverter.ToString(id));
             return id;
         }
 
