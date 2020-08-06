@@ -264,7 +264,7 @@
             this.btnMogi.Name = "btnMogi";
             this.btnMogi.Size = new System.Drawing.Size(255, 48);
             this.btnMogi.TabIndex = 11;
-            this.btnMogi.Text = "Generate 26 miis with A-Z tags for Mogi lounge";
+            this.btnMogi.Text = "Generate 26 Miis with A-Z tags for Mogi Lounge";
             this.btnMogi.UseVisualStyleBackColor = true;
             this.btnMogi.Click += new System.EventHandler(this.btnMogi_Click);
             // 
