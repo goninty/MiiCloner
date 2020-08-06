@@ -36,6 +36,8 @@ namespace MiiCloner
 
         private void MiiClonerForm_Load(object sender, EventArgs e)
         {
+            Console.WriteLine(BitConverter.ToString(generateMiiID(new Random())));
+
             gender[0] = Properties.Resources.Male;
             gender[1] = Properties.Resources.Female;
             favorite[0] = Properties.Resources.NoFavorite;
@@ -201,14 +203,32 @@ namespace MiiCloner
         }
 
         // generating random new mii ID
-        // https://stackoverflow.com/a/31451845
         // why do I pass in an instance of Random?
         // this is why: https://stackoverflow.com/a/768001
+        // why the switch statement? why just not use Random().NextBytes?
+        // this is why: https://web.archive.org/web/20090228214834/http://www.davidhawley.co.uk/special-miis-gold-pants-and-creating.aspx
+        // if i let it generate completely randomly between 0x00000000 and 0xFFFFFFFF
+        // then often it gets gold pants or blue pants
+        // and will not appear in the mii channel or not be editable
+        // the case statement is to spread it randomly across the different black pant ranges
         private byte[] generateMiiID(Random rnd)
         {
-            var id = new byte[sizeof(uint)];
-            rnd.NextBytes(id);
-            return id;
+            uint idNum = (uint) rnd.Next(536870912, 1073741824); // 0x20000000 - 0x3FFFFFFF
+
+            switch (rnd.Next(0, 3))
+            {
+                case 0:
+                    idNum += 1073741824;
+                    break;
+                case 1:
+                    idNum += 3221225472;
+                    break;
+                default:
+                    break;
+            }
+            
+
+            return BitConverter.GetBytes(idNum);
         }
 
     }
