@@ -74,7 +74,7 @@ namespace MiiCloner
         private byte[] packMetadata()
         {
             // format of the 2 bytes of metadata taken from http://wiibrew.org/wiki/Mii_Data#Mii_format
-            string metadataBinary = 0 + // invalid bit (no effect)
+            string metadataBinary = 1 + // invalid bit (no effect)
                                     Convert.ToString(mii.isGirl, 2).PadLeft(1, '0') +
                                     Convert.ToString(mii.month, 2).PadLeft(4, '0') +
                                     Convert.ToString(mii.day, 2).PadLeft(5, '0') +
