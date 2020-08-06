@@ -32,7 +32,7 @@ Either [Mii Installer](https://www.brewology.com/downloads/download.php?id=2641)
 
 Mii Installer doesn't seem to care what file type your Miis take - as long as they're in the correct directory on the SD card, then it will (attempt) to install them to your Mii Channel. As such, I'd be careful against adding any files to the `miis` folder on your SD card that aren't Mii files (`.mii`, `.miigx` or `.mae`).
 
-SaveGamer Manage GX however will only allow you to install `.miigx` files. As such, **if you are using SaveGame Manager GX be sure to save your cloned Miis as `.miigx` files**.
+SaveGame Manager GX however will only allow you to install `.miigx` files. As such, **if you are using SaveGame Manager GX be sure to save your cloned Miis as `.miigx` files**.
 
 Once you've cloned the Miis using Mii Cloner, whack them onto your SD card in the correct place and use the HBC app of your choice to install them. 
 
