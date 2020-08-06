@@ -36,8 +36,6 @@ namespace MiiCloner
 
         private void MiiClonerForm_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(BitConverter.ToString(generateMiiID(new Random())));
-
             gender[0] = Properties.Resources.Male;
             gender[1] = Properties.Resources.Female;
             favorite[0] = Properties.Resources.NoFavorite;
