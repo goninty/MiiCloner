@@ -32,5 +32,4 @@ namespace MiiCloner
             this.isFavorite = metadata[4];
         }
     }
-
 }

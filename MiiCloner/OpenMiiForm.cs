@@ -20,7 +20,7 @@ namespace MiiCloner
         private void btnOpenMii_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Mii Files (*.mii; *.mae)|*.mii;*.mae";
+            ofd.Filter = "Mii Files (*.mii; *.miigx; *.mae)|*.mii;*.miigx;*.mae";
             ofd.RestoreDirectory = true;
 
             if (ofd.ShowDialog() == DialogResult.OK)

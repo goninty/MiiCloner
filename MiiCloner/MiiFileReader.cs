@@ -66,6 +66,5 @@ namespace MiiCloner
             byte[] miiID = base.ReadBytes(4);
             return miiID;
         }
-
     }
 }

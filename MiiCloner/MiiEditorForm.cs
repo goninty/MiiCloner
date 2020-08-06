@@ -83,7 +83,7 @@ namespace MiiCloner
             saveMiiDetails();
 
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Mii File (*.mii)|*.mii";
+            sfd.Filter = "Mii File (*.mii)|*.mii|MiiGX File (*.miigx)|*.miigx";
             sfd.RestoreDirectory = true;
             sfd.FileName = BitConverter.ToString(mii.miiID);
             if (sfd.ShowDialog() == DialogResult.OK)
@@ -104,23 +104,28 @@ namespace MiiCloner
             else
             {
                 saveMiiDetails();
+                
 
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
-                    if (MessageBox.Show("Clone 26 miis into " + fbd.SelectedPath + "?", "Mii Cloner", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    FileFormatForm fff = new FileFormatForm();
+                    if (fff.ShowDialog() == DialogResult.OK)
                     {
-                        MiiFileWriter mfw;
-                        Random rnd = new Random();
-                        for (char c = 'A'; c <= 'Z'; c++)
+                        if (MessageBox.Show("Clone 26 miis into " + fbd.SelectedPath + "?", "Mii Cloner", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            mii.miiName = c.ToString() + " " + txtMiiName.Text;
-                            mii.miiID = generateMiiID(rnd);
-                            mfw = new MiiFileWriter(File.Open(fbd.SelectedPath + "\\" + mii.miiName + ".mii", FileMode.Create));
-                            mfw.Write(mii);
-                            mfw.Close();
+                            MiiFileWriter mfw;
+                            Random rnd = new Random();
+                            for (char c = 'A'; c <= 'Z'; c++)
+                            {
+                                mii.miiName = c.ToString() + " " + txtMiiName.Text;
+                                mii.miiID = generateMiiID(rnd);
+                                mfw = new MiiFileWriter(File.Open(fbd.SelectedPath + "\\" + mii.miiName + fff.returnValue, FileMode.Create));
+                                mfw.Write(mii);
+                                mfw.Close();
+                            }
+                            MessageBox.Show("Mogi miis created!", "Mii Cloner");
                         }
-                        MessageBox.Show("Mogi miis created!", "Mii Cloner");
                     }
                 }
             }
@@ -221,6 +226,5 @@ namespace MiiCloner
 
             return idBytes;
         }
-
     }
 }
