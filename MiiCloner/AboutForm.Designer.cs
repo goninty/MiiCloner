@@ -33,6 +33,7 @@
             this.lblMiiInstaller = new System.Windows.Forms.LinkLabel();
             this.lblMiiExtractor = new System.Windows.Forms.LinkLabel();
             this.lblGitHub = new System.Windows.Forms.LinkLabel();
+            this.lblSaveGameMngr = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblAbout
@@ -40,7 +41,7 @@
             this.lblAbout.AutoSize = true;
             this.lblAbout.Location = new System.Drawing.Point(13, 13);
             this.lblAbout.Name = "lblAbout";
-            this.lblAbout.Size = new System.Drawing.Size(437, 273);
+            this.lblAbout.Size = new System.Drawing.Size(437, 312);
             this.lblAbout.TabIndex = 1;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
@@ -69,7 +70,7 @@
             // lblGitHub
             // 
             this.lblGitHub.AutoSize = true;
-            this.lblGitHub.Location = new System.Drawing.Point(13, 287);
+            this.lblGitHub.Location = new System.Drawing.Point(13, 326);
             this.lblGitHub.Name = "lblGitHub";
             this.lblGitHub.Size = new System.Drawing.Size(40, 13);
             this.lblGitHub.TabIndex = 4;
@@ -77,11 +78,23 @@
             this.lblGitHub.Text = "GitHub";
             this.lblGitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGitHub_LinkClicked);
             // 
+            // lblSaveGameMngr
+            // 
+            this.lblSaveGameMngr.AutoSize = true;
+            this.lblSaveGameMngr.Location = new System.Drawing.Point(265, 247);
+            this.lblSaveGameMngr.Name = "lblSaveGameMngr";
+            this.lblSaveGameMngr.Size = new System.Drawing.Size(126, 13);
+            this.lblSaveGameMngr.TabIndex = 5;
+            this.lblSaveGameMngr.TabStop = true;
+            this.lblSaveGameMngr.Text = "SaveGame Manager GX.";
+            this.lblSaveGameMngr.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSaveGameMngr_LinkClicked);
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 315);
+            this.ClientSize = new System.Drawing.Size(461, 353);
+            this.Controls.Add(this.lblSaveGameMngr);
             this.Controls.Add(this.lblGitHub);
             this.Controls.Add(this.lblMiiExtractor);
             this.Controls.Add(this.lblMiiInstaller);
@@ -106,5 +119,6 @@
         private System.Windows.Forms.LinkLabel lblMiiInstaller;
         private System.Windows.Forms.LinkLabel lblMiiExtractor;
         private System.Windows.Forms.LinkLabel lblGitHub;
+        private System.Windows.Forms.LinkLabel lblSaveGameMngr;
     }
 }

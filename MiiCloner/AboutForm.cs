@@ -29,6 +29,11 @@ namespace MiiCloner
             System.Diagnostics.Process.Start("https://wiibrew.org/wiki/Mii_Extractor");
         }
 
+        private void lblSaveGameMngr_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://wiibrew.org/wiki/SaveGame_Manager_GX");
+        }
+
         private void lblGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/goninty/MiiCloner");

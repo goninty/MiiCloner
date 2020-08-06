@@ -127,7 +127,7 @@ Hitting the 'Export Clone' button will then create a new Mii file with the edite
 There is also a button that allows you to generate 26 Miis at once, ready for Mario Kart Wii's
 Mogi lounge.
 Each of these Miis will be created with a different tag from A-Z.
-Since the tag is prefixed onto the Mii name along with a space,the Mii name must be 8
+Since the tag is prefixed onto the Mii name along with a space, the Mii name must be 8
 characters or shorter to be able to generate the Mogi Miis.
 
 Once cloned, you can add these Miis back to your Mii Channel using the HBC app 
@@ -135,6 +135,9 @@ Once cloned, you can add these Miis back to your Mii Channel using the HBC app
 
 Similarly, if you're unsure of how to get the .mii files you'd like to clone, you can use the
 HBC app 
+
+An application that can both extract and install Miis is 
+However, be sure to save your cloned miis as .miigx files if you intend to use it.
 
 Thanks for checking out Mii Cloner!
 
