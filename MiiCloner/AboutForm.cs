@@ -21,12 +21,12 @@ namespace MiiCloner
 
         private void lblMiiInstaller_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://wiibrew.org/wiki/Mii_Installer");
+            System.Diagnostics.Process.Start("https://www.brewology.com/downloads/download.php?id=2641");
         }
 
         private void lblMiiExtractor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://wiibrew.org/wiki/Mii_Extractor");
+            System.Diagnostics.Process.Start("https://wii.brewology.com/downloads/download.php?id=2640");
         }
 
         private void lblSaveGameMngr_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
