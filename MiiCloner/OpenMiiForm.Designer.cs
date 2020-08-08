@@ -40,7 +40,7 @@
             this.btnOpenMii.Name = "btnOpenMii";
             this.btnOpenMii.Size = new System.Drawing.Size(208, 65);
             this.btnOpenMii.TabIndex = 0;
-            this.btnOpenMii.Text = "Click here or drag and drop to load .mii and .mae files";
+            this.btnOpenMii.Text = "Click here or drag and drop to load .mii, .miigx and .mae files";
             this.btnOpenMii.UseVisualStyleBackColor = true;
             this.btnOpenMii.Click += new System.EventHandler(this.btnOpenMii_Click);
             this.btnOpenMii.DragDrop += new System.Windows.Forms.DragEventHandler(this.btnOpenMii_DragDrop);
