@@ -39,7 +39,7 @@ namespace MiiCloner
 
             // giving a *paper mario mario voice* "nono" symbol if they try to drop either
             // too many files or anything that's not a mii file
-            if (files.Length != 1 || (!(fileExt.Equals(".mii") || fileExt.Equals(".mae"))))
+            if (files.Length != 1 || (!(fileExt.Equals(".mii") || fileExt.Equals(".miigx") || fileExt.Equals(".mae"))))
             {
                 e.Effect = DragDropEffects.None;
                 return;
