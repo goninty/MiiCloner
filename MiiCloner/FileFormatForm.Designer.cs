@@ -80,7 +80,7 @@
             this.Name = "FileFormatForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mii Cloner";
             this.Load += new System.EventHandler(this.FileFormatForm_Load);
             this.ResumeLayout(false);

@@ -58,6 +58,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OpenMiiForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mii Cloner";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.OpenMiiForm_HelpButtonClicked);
             this.ResumeLayout(false);

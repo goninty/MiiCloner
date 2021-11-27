@@ -299,6 +299,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MiiEditorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mii Cloner";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MiiEditorForm_HelpButtonClicked);
             this.Load += new System.EventHandler(this.MiiClonerForm_Load);
