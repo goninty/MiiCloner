@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MiiCloner
 {
@@ -51,6 +52,8 @@ namespace MiiCloner
             pbFavorite.Image = favorite[isFavorite];
             nudMonth.Value = mii.month;
             nudDay.Value = mii.day;
+
+            cbMogiTag.SelectedIndex = 0;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -95,14 +98,17 @@ namespace MiiCloner
 
         private void btnMogi_Click(object sender, EventArgs e)
         {
-            if (txtMiiName.Text.Length > 8)
+            if (cbMogiTag.Text.Count(Char.IsLetter) != 1)
             {
-                MessageBox.Show("Mii name too long to add a letter to the front. Please shorten it!", "Mii Cloner");
+                MessageBox.Show("Invalid mogi tag. Please ensure your tag contains one letter, such as [A].", "Mii Cloner");
+            }
+            else if (cbMogiTag.Text.Length + txtMiiName.Text.Length > 9)
+            {
+                MessageBox.Show("Mii name or mogi tag are too long. Please shorten one of them!", "Mii Cloner");
             }
             else
             {
                 saveMiiDetails();
-                
 
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() == DialogResult.OK)
@@ -113,10 +119,14 @@ namespace MiiCloner
                         if (MessageBox.Show("Clone 26 miis into " + fbd.SelectedPath + "?", "Mii Cloner", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             MiiFileWriter mfw;
+                            String miiTag = cbMogiTag.Text.Trim();
                             Random rnd = new Random();
                             for (char c = 'A'; c <= 'Z'; c++)
                             {
-                                mii.miiName = c.ToString() + " " + txtMiiName.Text;
+                                miiTag = Regex.Replace(miiTag, "[A-Z]", c.ToString());
+                                miiTag = Regex.Replace(miiTag, "[a-z]", c.ToString().ToLower());
+                                
+                                mii.miiName = miiTag + " " + txtMiiName.Text;
                                 mii.miiID = generateMiiID(rnd);
                                 mfw = new MiiFileWriter(File.Open(fbd.SelectedPath + "\\" + mii.miiName + fff.returnValue, FileMode.Create));
                                 mfw.Write(mii);
@@ -197,6 +207,20 @@ namespace MiiCloner
             else
             {
                 nudDay.Maximum = 31;
+            }
+        }
+
+        private void chbCustomiseTag_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbCustomiseTag.Checked)
+            {
+                cbMogiTag.DropDownStyle = ComboBoxStyle.DropDown;
+            }
+            else
+            {
+                cbMogiTag.DropDownStyle = ComboBoxStyle.DropDownList;
+                // if they typed anything, selectedIndex is lost. so set back to first item.
+                if (cbMogiTag.SelectedIndex == -1) cbMogiTag.SelectedIndex = 0;
             }
         }
 

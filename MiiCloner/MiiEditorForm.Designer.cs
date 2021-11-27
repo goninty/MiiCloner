@@ -48,6 +48,9 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnMogi = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.gbMogiTagStyle = new System.Windows.Forms.GroupBox();
+            this.chbCustomiseTag = new System.Windows.Forms.CheckBox();
+            this.cbMogiTag = new System.Windows.Forms.ComboBox();
             this.gbMiiName.SuspendLayout();
             this.gbCreatorName.SuspendLayout();
             this.gbGender.SuspendLayout();
@@ -60,6 +63,7 @@
             this.gbDay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDay)).BeginInit();
             this.gbBirthday.SuspendLayout();
+            this.gbMogiTagStyle.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblMiiName
@@ -260,7 +264,7 @@
             // 
             // btnMogi
             // 
-            this.btnMogi.Location = new System.Drawing.Point(12, 350);
+            this.btnMogi.Location = new System.Drawing.Point(12, 412);
             this.btnMogi.Name = "btnMogi";
             this.btnMogi.Size = new System.Drawing.Size(255, 48);
             this.btnMogi.TabIndex = 11;
@@ -278,11 +282,56 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // gbMogiTagStyle
+            // 
+            this.gbMogiTagStyle.Controls.Add(this.chbCustomiseTag);
+            this.gbMogiTagStyle.Controls.Add(this.cbMogiTag);
+            this.gbMogiTagStyle.Location = new System.Drawing.Point(12, 350);
+            this.gbMogiTagStyle.Name = "gbMogiTagStyle";
+            this.gbMogiTagStyle.Size = new System.Drawing.Size(255, 54);
+            this.gbMogiTagStyle.TabIndex = 13;
+            this.gbMogiTagStyle.TabStop = false;
+            this.gbMogiTagStyle.Text = "Mogi Tag Style";
+            // 
+            // chbCustomiseTag
+            // 
+            this.chbCustomiseTag.AutoSize = true;
+            this.chbCustomiseTag.Location = new System.Drawing.Point(137, 23);
+            this.chbCustomiseTag.Name = "chbCustomiseTag";
+            this.chbCustomiseTag.Size = new System.Drawing.Size(96, 17);
+            this.chbCustomiseTag.TabIndex = 1;
+            this.chbCustomiseTag.Text = "Customise Tag";
+            this.chbCustomiseTag.UseVisualStyleBackColor = true;
+            this.chbCustomiseTag.CheckedChanged += new System.EventHandler(this.chbCustomiseTag_CheckedChanged);
+            // 
+            // cbMogiTag
+            // 
+            this.cbMogiTag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMogiTag.Font = new System.Drawing.Font("CTMKF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMogiTag.FormattingEnabled = true;
+            this.cbMogiTag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbMogiTag.ItemHeight = 16;
+            this.cbMogiTag.Items.AddRange(new object[] {
+            "A",
+            "[A]",
+            "『A』",
+            "A♪",
+            "A☆",
+            "A★",
+            "A◇",
+            "A◆"});
+            this.cbMogiTag.Location = new System.Drawing.Point(12, 19);
+            this.cbMogiTag.MaxLength = 9;
+            this.cbMogiTag.Name = "cbMogiTag";
+            this.cbMogiTag.Size = new System.Drawing.Size(106, 24);
+            this.cbMogiTag.TabIndex = 0;
+            // 
             // MiiEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 412);
+            this.ClientSize = new System.Drawing.Size(279, 471);
+            this.Controls.Add(this.gbMogiTagStyle);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnMogi);
             this.Controls.Add(this.btnEdit);
@@ -318,6 +367,8 @@
             this.gbDay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
             this.gbBirthday.ResumeLayout(false);
+            this.gbMogiTagStyle.ResumeLayout(false);
+            this.gbMogiTagStyle.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,6 +395,9 @@
         private System.Windows.Forms.PictureBox pbFavorite;
         private System.Windows.Forms.NumericUpDown nudMonth;
         private System.Windows.Forms.NumericUpDown nudDay;
+        private System.Windows.Forms.GroupBox gbMogiTagStyle;
+        private System.Windows.Forms.ComboBox cbMogiTag;
+        private System.Windows.Forms.CheckBox chbCustomiseTag;
     }
 }
 
