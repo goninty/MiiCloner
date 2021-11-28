@@ -34,6 +34,7 @@
             this.lblMiiExtractor = new System.Windows.Forms.LinkLabel();
             this.lblGitHub = new System.Windows.Forms.LinkLabel();
             this.lblSaveGameMngr = new System.Windows.Forms.LinkLabel();
+            this.lblCustomMKWiiki = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblAbout
@@ -41,14 +42,15 @@
             this.lblAbout.AutoSize = true;
             this.lblAbout.Location = new System.Drawing.Point(13, 13);
             this.lblAbout.Name = "lblAbout";
-            this.lblAbout.Size = new System.Drawing.Size(437, 312);
+            this.lblAbout.Size = new System.Drawing.Size(437, 468);
             this.lblAbout.TabIndex = 1;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
+            this.lblAbout.Click += new System.EventHandler(this.lblAbout_Click);
             // 
             // lblMiiInstaller
             // 
             this.lblMiiInstaller.AutoSize = true;
-            this.lblMiiInstaller.Location = new System.Drawing.Point(12, 182);
+            this.lblMiiInstaller.Location = new System.Drawing.Point(12, 338);
             this.lblMiiInstaller.Name = "lblMiiInstaller";
             this.lblMiiInstaller.Size = new System.Drawing.Size(62, 13);
             this.lblMiiInstaller.TabIndex = 2;
@@ -59,7 +61,7 @@
             // lblMiiExtractor
             // 
             this.lblMiiExtractor.AutoSize = true;
-            this.lblMiiExtractor.Location = new System.Drawing.Point(59, 221);
+            this.lblMiiExtractor.Location = new System.Drawing.Point(59, 378);
             this.lblMiiExtractor.Name = "lblMiiExtractor";
             this.lblMiiExtractor.Size = new System.Drawing.Size(68, 13);
             this.lblMiiExtractor.TabIndex = 3;
@@ -70,7 +72,7 @@
             // lblGitHub
             // 
             this.lblGitHub.AutoSize = true;
-            this.lblGitHub.Location = new System.Drawing.Point(13, 326);
+            this.lblGitHub.Location = new System.Drawing.Point(13, 482);
             this.lblGitHub.Name = "lblGitHub";
             this.lblGitHub.Size = new System.Drawing.Size(40, 13);
             this.lblGitHub.TabIndex = 4;
@@ -81,7 +83,7 @@
             // lblSaveGameMngr
             // 
             this.lblSaveGameMngr.AutoSize = true;
-            this.lblSaveGameMngr.Location = new System.Drawing.Point(265, 247);
+            this.lblSaveGameMngr.Location = new System.Drawing.Point(265, 403);
             this.lblSaveGameMngr.Name = "lblSaveGameMngr";
             this.lblSaveGameMngr.Size = new System.Drawing.Size(126, 13);
             this.lblSaveGameMngr.TabIndex = 5;
@@ -89,11 +91,23 @@
             this.lblSaveGameMngr.Text = "SaveGame Manager GX.";
             this.lblSaveGameMngr.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSaveGameMngr_LinkClicked);
             // 
+            // lblCustomMKWiiki
+            // 
+            this.lblCustomMKWiiki.AutoSize = true;
+            this.lblCustomMKWiiki.Location = new System.Drawing.Point(86, 298);
+            this.lblCustomMKWiiki.Name = "lblCustomMKWiiki";
+            this.lblCustomMKWiiki.Size = new System.Drawing.Size(122, 13);
+            this.lblCustomMKWiiki.TabIndex = 6;
+            this.lblCustomMKWiiki.TabStop = true;
+            this.lblCustomMKWiiki.Text = "Custom Mario Kart Wiiki.";
+            this.lblCustomMKWiiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCustomMKWiiki_LinkClicked);
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 353);
+            this.ClientSize = new System.Drawing.Size(461, 506);
+            this.Controls.Add(this.lblCustomMKWiiki);
             this.Controls.Add(this.lblSaveGameMngr);
             this.Controls.Add(this.lblGitHub);
             this.Controls.Add(this.lblMiiExtractor);
@@ -121,5 +135,6 @@
         private System.Windows.Forms.LinkLabel lblMiiExtractor;
         private System.Windows.Forms.LinkLabel lblGitHub;
         private System.Windows.Forms.LinkLabel lblSaveGameMngr;
+        private System.Windows.Forms.LinkLabel lblCustomMKWiiki;
     }
 }

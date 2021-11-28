@@ -18,6 +18,10 @@ namespace MiiCloner
         }
 
         private void AboutForm_Load(object sender, EventArgs e) { }
+        private void lblCustomMKWiiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://wiki.tockdom.com/wiki/Extended_Symbols");
+        }
 
         private void lblMiiInstaller_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -37,6 +41,11 @@ namespace MiiCloner
         private void lblGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/goninty/MiiCloner");
+        }
+
+        private void lblAbout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -125,10 +125,22 @@ You can edit some of the Mii's information before cloning by hitting the 'Edit' 
 Hitting the 'Export Clone' button will then create a new Mii file with the edited information.
 
 There is also a button that allows you to generate 26 Miis at once, ready for Mario Kart Wii's
-Mogi lounge.
-Each of these Miis will be created with a different tag from A-Z.
-Since the tag is prefixed onto the Mii name along with a space, the Mii name must be 8
-characters or shorter to be able to generate the Mogi Miis.
+Mogi lounge. By default, a single capital letter will be prepended onto your Mii's name,
+resulting in names like "A Player".
+
+But, if you like, you can change how the tag is formatted. You can either choose from a
+pre-made list using the dropdown box, or type your own in after clicking "Customise Tag".
+
+Make sure you format your custom tag correctly - only one letter is allowed. An example
+custom tag would be ~A~. This would generate 26 tags from A-Z with ~ symbols on either
+side of the letter.
+
+Since the tag is added before the Mii name along with a space, make sure that the length
+of your Mii's name plus the length of your custom tag doesn't exceed 9 characters.
+
+The Mii Name, Author Name and Mogi Tag boxes all use the CTMKF font. You can paste
+MKWii specific symbols in and they should appear! You can find a list of the special
+symbols on the
 
 Once cloned, you can add these Miis back to your Mii Channel using the HBC app 
 
@@ -141,8 +153,7 @@ However, be sure to save your cloned Miis as .miigx files if you intend to use i
 
 Thanks for checking out Mii Cloner!
 
-Created by goninty, August 2020.
-</value>
+Created by goninty, August 2020 - November 2021.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
