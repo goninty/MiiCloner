@@ -16,16 +16,26 @@ Once loaded, you can edit a Mii's:
 * Favorite status
 * Birthday
 
-The Mii and creator names are displayed using the [CTMKF](http://wiki.tockdom.com/wiki/CTMKF) font, if it's installed on your system. This means that any special MKWii symbols in your name will appear.
+The Mii name, creator name and mogi tag are displayed using the [CTMKF](http://wiki.tockdom.com/wiki/CTMKF) font, if it's installed on your system. This means that any special MKWii symbols in your name will appear.
 
 Once you're ready to clone your Mii, you can hit the `Export Clone` button.
 
 ### Using the Mogi Mii cloner feature
-If you'd like to clone one Mii into 26 alphabetically tagged Miis for use in MKWii's Mogi Lounge, then you can use this feature. Simply load in a Mii, make any edits you'd like, and hit the `Generate 26 Miis with A-Z tags for Mogi Lounge` button.
+If you'd like to clone one Mii into 26 alphabetically tagged Miis for use in MKWii's Mogi Lounge, then you can use this feature. Simply load in a Mii, make any edits you'd like, choose your tag style and hit the `Generate 26 Miis with A-Z tags for Mogi Lounge` button.
 
-Note that this feature simply adds a single letter in front of your Mii's name - so `Player` becomes `A Player` and so on. Due to this, if your Mii's name is longer than 8 characters, you'll need to shorten it before you can use this feature.
+The default tag style will simply add a letter in front of your Mii's name - so `Player` becomes `A Player` and so on. Or, choose a tag style from the dropdown - it has a few common tags such as `[A]`. You can also type in your own tag - see the next section for guidance.
+
+Since your chosen tag and a space is added before your Mii's name, you need to make sure that the lengths of both your entered Mii name and Mogi tag added together don't exceed 9.
 
 After choosing a folder to place the clones, be sure to select the correct file type - `.mii` or `.miigx` based on the app you'll be using to install the clones. This is explained a bit more below. Click through the confirmation alert (just, please, make sure you don't accidentally add 26 files to somewhere you don't want them) and your tagged clones will be generated.
+
+### Formatting your own Mogi tag
+
+If you would like to format the tag style yourself, click the `Customise Tag` button. You can then type into the dropdown box and specify how you'd like your tag to look. Make sure you only type one letter in your custom tag - this is the character that will be replaced when generating tags from A-Z.
+
+So, an example of what to type might be `+A+`. This would result in `Player` becoming `+A+ Player`, `+B+ Player` and so on.
+
+This feature respects the capitalisation case of the tag you type in. As such, if you type in `[a]`, the letters in the generated tags will be lower case.
 
 ### Adding Mii files back to your Mii Channel
 Either [Mii Installer](https://www.brewology.com/downloads/download.php?id=2641) or [SaveGame Manager GX](https://wiibrew.org/wiki/SaveGame_Manager_GX) can be used to add your cloned Miis back to your Mii Channel.
